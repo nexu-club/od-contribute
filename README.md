@@ -5,10 +5,14 @@ A Claude Code / Codex / Cursor skill that walks any [Open Design](https://github
 ## Install
 
 ```sh
-npx skills add nexu-io/od-contribute
+npx skills add nexu-io/od-contribute -g
 ```
 
-That's it. After the install runs, type one of these in your AI agent's chat:
+The `-g` (global) flag installs to `~/.agents/skills/od-contribute/` and symlinks it into every supported agent's home dir (Claude Code, Codex CLI, Cursor, etc.). You only need to install once — the skill is available in every chat afterward.
+
+> **Why `-g` and not project-local?** This skill exists so you can ship a PR to `nexu-io/open-design` from anywhere, not just from a specific project. Installing globally means it works the same in every chat. Without `-g`, `skills add` would try to write `./.agents/skills/od-contribute/` in the current directory — many AI agents (Claude Code in particular) block project-local writes by default for security, so the global install is both safer and more useful.
+
+After the install runs, type one of these in your AI agent's chat:
 
 | Agent | Trigger |
 |---|---|
